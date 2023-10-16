@@ -9,7 +9,6 @@ const sequelize = new Sequelize(
   `postgress://${user}:${pass}@localhost:${port}/${dbName}`
 );
 
-// Se trajo de la documentadddcion xde postgres
 async function testConection() {
   try {
     await sequelize.authenticate();
