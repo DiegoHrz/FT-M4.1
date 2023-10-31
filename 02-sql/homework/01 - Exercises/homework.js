@@ -1,5 +1,32 @@
 /* ¡Escribe tus comandos en este archivo! */
 
+const ejercicio02 = 'SELECT * FROM movies where duration > 90;'
+
+const ejercicio03 = 'SELECT * FROM movies where year BETWEEN 1930 AND 1940;'
+
+const ejercicio04 = 'SELECT ;'
+
+const ejercicio05 = ';'
+
+
+const ejercicio06 = ';';
+//unnset(trae el array y utiliza los elementos y los tira en un tabla)
+//SELECT AVG(rating) FROM UNNEST(ratings) AS ratings) FROM movies;
+
+const ejercicio07 = ''
+
+module.exports = {
+   ejercicio02,
+   ejercicio03,
+   ejercicio04,
+   ejercicio05,
+   ejercicio06,
+   ejercicio07,
+};
+
+
+/* ¡Escribe tus comandos en este archivo! 
+
 const ejercicio02 = 'SELECT * FROM movies WHERE duration < 90;';
 
 const ejercicio03 = 'SELECT * FROM movies WHERE year BETWEEN 1930 AND year 1940;';
@@ -15,12 +42,4 @@ const ejercicio06 = 'SELECT title, AVG(rating) FROM movies UNNEST(ratings) AS ra
 //SELECT AVG(rating) FROM UNNEST(ratings) AS ratings) FROM movies;
 
 const ejercicio07 = 'SELECT actors FROM movies WHERE title LIKE "%Fast and%" AND year = 2016 ;'
-
-module.exports = {
-   ejercicio02,
-   ejercicio03,
-   ejercicio04,
-   ejercicio05,
-   ejercicio06,
-   ejercicio07,
-};
+*/
