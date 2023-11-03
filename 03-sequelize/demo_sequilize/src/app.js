@@ -13,6 +13,16 @@ server.use(morgan("dev"));
 
 //rutas:
 
+//todos los usuarios:
+server.get("/users", async (request, response) => {
+  try {
+    const allUsers = await User.findAll();
+    response.status(200).json(allUsers);
+  } catch (error) {
+    response.status(404).json({ error: error.message });
+  }
+});
+
 //async para que aparezca despues porq puede tomar mas tiempo
 server.post("/user", async (request, response) => {
   //cuando hacemos un post necesitamos info en el body de la request, las cuales son las propiedades de los modelos.
@@ -32,7 +42,7 @@ server.post("/user", async (request, response) => {
 });
 
 //ruta para eliminar usuarios
-server.delete("/", async (request, response) => {
+server.delete("/user", async (request, response) => {
   try {
     //requiero id para poder eliminar al usuario
     const { id } = request.body;
