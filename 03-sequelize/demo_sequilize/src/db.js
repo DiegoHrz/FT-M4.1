@@ -1,7 +1,8 @@
 //Intanciando sequelize
 const { Sequelize } = require("sequelize");
-const User = require("./models/User");
-const Post = require("./models/Post");
+const UserFn = require("./models/User");
+const PostFn = require("./models/Post");
+const PageFn = require("./models/Page");
 
 const user = "postgres";
 const pass = "sher";
@@ -14,8 +15,19 @@ const dataBase = new Sequelize(
 );
 
 //Se ejecuta la funcion del modelo usuario (entidad)
-User(dataBase);
-Post(dataBase);
+UserFn(dataBase);
+PostFn(dataBase);
+PageFn(dataBase);
+
+const { User, Post, Page} = dataBase.models;
+
+//Relaciones:
+User.hasMany(Post) // un usuario tiene muchos posts
+Post.belongsTo(User) // pertenece a solo un usuario
+
+User.belongsToMany(Page, {through: 'UserPage'}) // N : N
+Page.belongsToMany(User, {through: 'UserPage'})
+
 
 //Para usar los modelos usaremos dataBase.models, ya q ahi se encuentran
 
