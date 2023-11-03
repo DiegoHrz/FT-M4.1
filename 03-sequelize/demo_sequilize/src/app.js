@@ -14,7 +14,7 @@ server.use(morgan("dev"));
 //rutas:
 
 //async para que aparezca despues porq puede tomar mas tiempo
-server.post("/user", async(request, response) => {
+server.post("/user", async (request, response) => {
   //cuando hacemos un post necesitamos info en el body de la request, las cuales son las propiedades de los modelos.
   try {
     const { name, lastname } = request.body;
@@ -31,8 +31,18 @@ server.post("/user", async(request, response) => {
   }
 });
 
-
-
+//ruta para eliminar usuarios
+server.delete("/", async (request, response) => {
+  try {
+    //requiero id para poder eliminar al usuario
+    const { id } = request.body;
+    const user = await User.findByPk(id);
+    user.destroy();
+    response.status(200).json(user);
+  } catch (error) {
+    response.status(404).json({ error: error.message });
+  }
+});
 
 //dejando a disposicion el server, para que en el index.js ejecutaremos el puerto 3001:
 module.exports = server;
