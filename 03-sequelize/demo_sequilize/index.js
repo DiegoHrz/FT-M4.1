@@ -7,6 +7,6 @@ server.listen(3001, async () => {
 
   //Como debemos esperar a que se sincronice la base de datos con el servidor debemos hacer una promesa (async y await), sync(metodo para sincronizar la base de datos)
 //para q la db se pueda actualizar cada vez (crear y eliminar) requiere un {force}
-  await dataBase.sync({force: true});
+  await dataBase.sync({alter: true});
   console.log("listen on port 3001");
 });
